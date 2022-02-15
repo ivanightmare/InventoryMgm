@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const ProviderSchema = new mongoose.Schema({
     companyName: {
         type: String,
