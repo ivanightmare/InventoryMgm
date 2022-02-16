@@ -1,27 +1,27 @@
 const mongoose = require('mongoose');
 
-const MaterialSchema = new mongoose.Schema({
-    materialName: {
+const productSchema = new mongoose.Schema({
+    productName: {
         type: String,
         required: true,
     },
-    materialLocation: {
+    productLocation: {
         type: String,
         required: true,
     },
-    materialDescription: {
+    productDescription: {
         type: String,
         required: true,
     },
-    materialPrice: {
+    productPrice: {
         type: Number,
         required: true,
     },
-    materialQuantity: {
+    productQuantity: {
         type: Number,
         required: true,
     },
-    materialImage: {
+    productImage: {
         type: Image,
         required: true,
     },
@@ -31,52 +31,52 @@ const MaterialSchema = new mongoose.Schema({
     },
 });
 
-const Material = mongoose.model('Material', MaterialSchema);
-module.exports = Material;
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product;
 
-module.exports.getMaterial = (callback, limit) => {
-    Material.find(callback).limit(limit);
+module.exports.getProduct = (callback, limit) => {
+    Product.find(callback).limit(limit);
 }
 
-module.exports.getMaterialById = (id, callback) => {
-    Material.findById(id, callback);
+module.exports.getProductById = (id, callback) => {
+    Product.findById(id, callback);
 }
 
-module.exports.addMaterial = (newMaterial, callback) => {
-    Material.create(newMaterial, callback);
+module.exports.addProduct = (newProduct, callback) => {
+    Product.create(newProduct, callback);
 }
 
-module.exports.updateMaterial = (id, newMaterial, options, callback) => {
+module.exports.updateProduct = (id, newProduct, options, callback) => {
     var query = { _id: id };
     var update = {
-        materialName: newMaterial.materialName,
-        materialLocation: newMaterial.materialLocation,
-        materialDescription: newMaterial.materialDescription,
-        materialPrice: newMaterial.materialPrice,
-        materialQuantity: newMaterial.materialQuantity,
-        materialImage: newMaterial.materialImage,
+        productName: newProduct.productName,
+        productLocation: newProduct.productLocation,
+        productDescription: newProduct.productDescription,
+        productPrice: newProduct.productPrice,
+        productQuantity: newProduct.productQuantity,
+        productImage: newProduct.productImage,
     }
-    Material.findOneAndUpdate(query, update, options, callback);
+    Product.findOneAndUpdate(query, update, options, callback);
 };
 
-module.exports.removeMaterial = (id, callback) => {
+module.exports.removeProduct = (id, callback) => {
     var query = { _id: id };
-    Material.remove(query, callback);
+    Product.remove(query, callback);
 }
 
-module.exports.getMaterialByName = (name, callback) => {
-    Material.find({ materialName: name }, callback);
+module.exports.getProductByName = (name, callback) => {
+    Product.find({ productName: name }, callback);
 }
 
-module.exports.getMaterialByLocation = (location, callback) => {
-    Material.find({ materialLocation: location }, callback);
+module.exports.getProductByLocation = (location, callback) => {
+    Product.find({ productLocation: location }, callback);
 }
 
-module.exports.getMaterialByDescription = (description, callback) => {
-    Material.find({ materialDescription: description }, callback);
+module.exports.getProductByDescription = (description, callback) => {
+    Product.find({ productDescription: description }, callback);
 }
 
-module.exports.getMaterialByPrice = (price, callback) => {
-    Material.find({ materialPrice: price }, callback);
+module.exports.getProductByPrice = (price, callback) => {
+        Product.find({ productPrice: price }, callback);
 }
 
