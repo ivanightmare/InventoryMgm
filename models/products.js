@@ -5,6 +5,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    productCode: {
+        type: String,
+        required: true,
+    },
     productLocation: {
         type: String,
         required: true,
@@ -68,6 +72,9 @@ module.exports.getProductByName = (name, callback) => {
     Product.find({ productName: name }, callback);
 }
 
+module.exports.getProductByCode = (code, callback) => {
+    Product.find({ productCode: code }, callback);
+}
 module.exports.getProductByLocation = (location, callback) => {
     Product.find({ productLocation: location }, callback);
 }
