@@ -21,6 +21,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    productSize: {
+        type: String,
+        required: true,
+    },
     productPrice: {
         type: Number,
         required: true,
@@ -62,7 +66,9 @@ module.exports.updateProduct = (id, newProduct, options, callback) => {
         productDescription: newProduct.productDescription,
         productPrice: newProduct.productPrice,
         productQuantity: newProduct.productQuantity,
+        productSize: newProduct.productSize,
         productImage: newProduct.productImage,
+
     }
     Product.findOneAndUpdate(query, update, options, callback);
 };
