@@ -75,6 +75,7 @@ module.exports.getProductByName = (name, callback) => {
 module.exports.getProductByCode = (code, callback) => {
     Product.find({ productCode: code }, callback);
 }
+
 module.exports.getProductByLocation = (location, callback) => {
     Product.find({ productLocation: location }, callback);
 }
